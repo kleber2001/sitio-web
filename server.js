@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
 
 // usar estáticos cuando esta en modo produccion //
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'));
+    app.use(express.static('cliente/build'));
     app.get("*", (req, res) => {
-        res.sendFile((__dirname + "/frontend/build/index.html"));
+        res.sendFile((__dirname + "/cliente/build/index.html"));
     })
     }
     
