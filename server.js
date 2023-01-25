@@ -21,18 +21,18 @@ app.get('/', (req, res) => {
 
 // usar estáticos cuando esta en modo produccion //
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('cliente/build'));
+    app.use(express.static('/cliente/build'));
     app.get("*", (req, res) => {
         res.sendFile((__dirname + "/cliente/build/index.html"));
-    })
-    }
+})
+}
     
     
-    // cambio de puerto en heroku
-    let port = process.env.PORT;
-    if (port == null || port == "") {
-    port = 5000;
-    }  
+// cambio de puerto en heroku
+let port = process.env.PORT;
+if (port == null || port == "") {
+port = 5000;
+}  
 
 
 //Configurar server básico
